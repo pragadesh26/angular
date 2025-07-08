@@ -1,0 +1,45 @@
+.dashboard-container {
+  text-align: center;
+  padding: 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5faff;
+  min-height: 100vh;
+}
+
+.title {
+  color: #0077cc;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+.profile-box {
+  background: #e6f7ff;
+  border: 1px solid #b3daff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-msg {
+  color: red;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.logout-button {
+  margin-top: 30px;
+  padding: 10px 25px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #cc0000;
+}

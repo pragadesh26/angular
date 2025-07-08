@@ -1,0 +1,11 @@
+<div style="text-align:center; padding:40px;">
+  <h2 style="color: green;">Login Form</h2>
+
+  <input [(ngModel)]="name" placeholder="Name" style="padding:10px; margin-bottom:10px;"><br>
+  <input [(ngModel)]="email" placeholder="Email" style="padding:10px; margin-bottom:10px;"><br>
+  <input [(ngModel)]="password" type="password" placeholder="Password" style="padding:10px;"><br><br>
+
+  <button (click)="login()" style="padding:10px 30px; background:green; color:white;">Login</button>
+
+  <div *ngIf="error" style="color:red; margin-top:10px;">{{ error }}</div>
+</div>
