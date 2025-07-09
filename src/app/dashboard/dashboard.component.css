@@ -1,45 +1,78 @@
+/* Gradient background */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right top, #0f2027, #203a43, #2c5364);
+}
+
+/* Center container */
 .dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
   text-align: center;
-  padding: 40px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5faff;
-  min-height: 100vh;
+  color: #28b7ca;
 }
 
-.title {
-  color: #0077cc;
-  margin-bottom: 25px;
-  font-size: 28px;
+/* Title */
+.dashboard-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #00e6e6;
 }
 
-.profile-box {
-  background: #e6f7ff;
-  border: 1px solid #b3daff;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 400px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Profile card with glass effect */
+.profile-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 300px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  text-align: left; /* Align text to left */
+  font-family: 'Segoe UI', sans-serif;
+  color: #007a99;
+
 }
 
-.error-msg {
-  color: red;
+.profile-card p {
+  margin: 10px 0;
   font-size: 16px;
-  margin-top: 10px;
+  line-height: 1.4;
 }
 
-.logout-button {
-  margin-top: 30px;
-  padding: 10px 25px;
-  background-color: #ff4d4f;
-  color: white;
+.profile-card p strong {
+  width: 80px;
+  display: inline-block; /* Align all labels */
+  color: #004d66;
+}
+
+
+/* Error message */
+.error-text {
+  color: #ff6666;
+  margin-bottom: 20px;
+}
+
+/* Logout button */
+.logout-btn {
+  background-color: #ff4d4d;
   border: none;
+  color: white;
+  padding: 12px 30px;
+  font-size: 16px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
   transition: background 0.3s;
+  margin: 20px 0;
 }
 
-.logout-button:hover {
+.logout-btn:hover {
   background-color: #cc0000;
 }

@@ -2,39 +2,45 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  template: `
-    <div style="text-align: center; padding: 40px;">
-      <h2 style="color: green;">Login Form</h2>
-      <input [(ngModel)]="name" placeholder="Name" style="padding: 10px;"><br><br>
-      <input [(ngModel)]="email" placeholder="Email" style="padding: 10px;"><br><br>
-      <input [(ngModel)]="password" type="password" placeholder="Password" style="padding: 10px;"><br><br>
-      <button (click)="login()" style="padding: 10px 30px; background: green; color: white;">Login</button>
-    </div>
-  `
+  imports: [CommonModule, FormsModule, HttpClientModule],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   name: string = '';
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private http:HttpClient,private router: Router) {}
 
  login() {
-  if (this.name && this.email && this.password) {
-    // Store name and email in localStorage
-    localStorage.setItem('name', this.name);
-    localStorage.setItem('email', this.email);
+  console.log('Login button clicked'); // ✅ Add this
+  const payload = {
+    email: this.email,
+    password: this.password
+  };
 
-    // Navigate to dashboard
-    this.router.navigate(['/dashboard']);
-  } else {
-    alert('Enter name, email and password');
-  }
+  this.http.post<any>('http://127.0.0.1:8000/api/login', payload).subscribe({
+    next: (res) => {
+      console.log('Login success:', res); // ✅ Log response
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('name', res.user.name);
+      localStorage.setItem('email', res.user.email);
+      this.router.navigate(['/dashboard']);
+    },
+    error: (err) => {
+      console.error('Login error:', err); // ✅ Log error
+      alert('Login failed. Check credentials.');
+    }
+  });
 }
+
 
 }

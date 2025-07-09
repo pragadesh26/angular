@@ -1,11 +1,16 @@
-<div style="text-align:center; padding:40px;">
-  <h2 style="color: green;">Login Form</h2>
+<div class="login-container">
+  <div class="login-box">
+    <h2 class="login-title">CUSTOMER LOGIN</h2>
 
-  <input [(ngModel)]="name" placeholder="Name" style="padding:10px; margin-bottom:10px;"><br>
-  <input [(ngModel)]="email" placeholder="Email" style="padding:10px; margin-bottom:10px;"><br>
-  <input [(ngModel)]="password" type="password" placeholder="Password" style="padding:10px;"><br><br>
+    <input [(ngModel)]="name" placeholder="Name" type="text" class="input-box" />
+    <input [(ngModel)]="email" placeholder="Email ID" type="email" class="input-box" />
+    <input [(ngModel)]="password" placeholder="Password" type="password" class="input-box" />
 
-  <button (click)="login()" style="padding:10px 30px; background:green; color:white;">Login</button>
+    <div class="extra-options">
+      <label><input type="checkbox" /> Remember me</label>
+      <a href="#">Forgot Password?</a>
+    </div>
 
-  <div *ngIf="error" style="color:red; margin-top:10px;">{{ error }}</div>
+    <button (click)="login()" class="login-btn">LOGIN</button>
+  </div>
 </div>

@@ -1,14 +1,15 @@
 <div class="dashboard-container">
-  <h2 class="title">Dashboard</h2>
+  <h2 class="dashboard-title">Welcome to Your Dashboard</h2>
 
-  <div *ngIf="name && email" class="profile-box">
+  <div class="profile-card" *ngIf="name && email">
     <p><strong>Name:</strong> {{ name }}</p>
     <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Phone:</strong> {{ phone || '1234567890' }}</p>
+    <p><strong>Address:</strong> {{ address || 'Not provided' }}</p>
+    <p><strong>Role:</strong> {{ role || 'User' }}</p>
   </div>
 
-  <div *ngIf="!name || !email" class="error-msg">No user info found</div>
+  <div *ngIf="!name || !email" class="error-text">No user info found.</div>
 
-  <button (click)="logout()" class="logout-button">
-    Logout
-  </button>
+  <button class="logout-btn" (click)="logout()">Logout</button>
 </div>

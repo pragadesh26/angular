@@ -11,11 +11,17 @@ import { CommonModule } from '@angular/common';
 export class DashboardComponent implements OnInit {
   name: string | null = '';
   email: string | null = '';
+  phone: string | null = '';
+  address: string | null = '';
+  role: string | null = '';
 
   ngOnInit() {
     // Get values from localStorage
     this.name = localStorage.getItem('name');
     this.email = localStorage.getItem('email');
+    this.phone = localStorage.getItem('phone');     // 👈 new
+    this.address = localStorage.getItem('address'); // 👈 optional
+    this.role = localStorage.getItem('role');    
   }
 
   logout() {
