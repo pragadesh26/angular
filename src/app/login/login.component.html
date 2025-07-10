@@ -1,16 +1,35 @@
-<div class="login-container">
-  <div class="login-box">
-    <h2 class="login-title">CUSTOMER LOGIN</h2>
+<div class="container d-flex justify-content-center align-items-center min-vh-100 login-container">
+  <div class="login-box w-100" style="max-width: 400px;">
+    <h2 class="login-title text-center mb-4">CUSTOMER LOGIN</h2>
 
-    <input [(ngModel)]="name" placeholder="Name" type="text" class="input-box" />
-    <input [(ngModel)]="email" placeholder="Email ID" type="email" class="input-box" />
-    <input [(ngModel)]="password" placeholder="Password" type="password" class="input-box" />
-
-    <div class="extra-options">
-      <label><input type="checkbox" /> Remember me</label>
-      <a href="#">Forgot Password?</a>
+    <div class="mb-3">
+      <input [(ngModel)]="name" placeholder="Name" type="name" class="form-control input-box" name="name" />
     </div>
 
-    <button (click)="login()" class="login-btn">LOGIN</button>
+    <div class="mb-3">
+      <input [(ngModel)]="email" placeholder="Email ID" type="email" class="form-control input-box" name="email" required />
+    </div>
+
+    <div class="mb-3">
+      <input [(ngModel)]="password" placeholder="Password" type="password" class="form-control input-box" name="password" required />
+    </div>
+
+    <div class="mb-3">
+      <select [(ngModel)]="role" name="role" class="form-select input-box" required>
+        <option value="" disabled selected>Select Role</option>
+        <option value="admin">Admin</option>
+        <option value="teacher">Teacher</option>
+        <option value="student">Student</option>
+      </select>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3 extra-options">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input me-2" /> Remember me
+      </label>
+      <a href="#" class="text-decoration-none">Forgot Password?</a>
+    </div>
+
+    <button (click)="login()" class="btn btn-primary w-100 login-btn">LOGIN</button>
   </div>
 </div>

@@ -1,78 +1,106 @@
-/* Gradient background */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right top, #0f2027, #203a43, #2c5364);
-}
-
-/* Center container */
 .dashboard-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 70vh;
-  text-align: center;
-  color: #28b7ca;
-}
-
-/* Title */
-.dashboard-title {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #00e6e6;
-}
-
-/* Profile card with glass effect */
-.profile-card {
-  background: white;
+  max-width: 500px;
+  margin: 40px auto;
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  width: 300px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  text-align: left; /* Align text to left */
-  font-family: 'Segoe UI', sans-serif;
-  color: #007a99;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-title {
+  text-align: center;
+  color: #00cfc8;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+}
+
+.user-info h5,
+.selected-student h5 {
+  font-size: 20px;
+  margin: 5px 0;
+  justify-content:center;
+  color: #000000;
 
 }
 
-.profile-card p {
-  margin: 10px 0;
-  font-size: 16px;
-  line-height: 1.4;
+.section-title {
+  color: #333;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
 }
 
-.profile-card p strong {
-  width: 80px;
-  display: inline-block; /* Align all labels */
-  color: #004d66;
-}
-
-
-/* Error message */
-.error-text {
-  color: #ff6666;
+.student-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-/* Logout button */
-.logout-btn {
-  background-color: #ff4d4d;
-  border: none;
+.student-dropdown select {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.student-dropdown button {
+  padding: 8px 18px;
+  background-color: #00cfc8;
   color: white;
-  padding: 12px 30px;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin: 20px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.student-dropdown button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #00cfc8;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  margin-top: 20px;
+  transition: background-color 0.3s;
 }
 
 .logout-btn:hover {
-  background-color: #cc0000;
+  background-color: #00b2a6;
+}
+
+.user-info {
+  display: table;
+  margin: 50px auto; /* center the block horizontally */
+  background: #f8f8f8;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.user-info h5 {
+  display: table-row;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.user-info strong {
+  display: table-cell;
+  padding-right: 10px;
+  min-width: 100px;
+  text-align: left;
+  padding: 7px;
+}
+
+.user-info span {
+  display: table-cell;
+  text-align: left;
 }

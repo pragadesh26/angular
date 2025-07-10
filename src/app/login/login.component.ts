@@ -17,14 +17,17 @@ export class LoginComponent {
   name: string = '';
   email: string = '';
   password: string = '';
+  role: string = 'student';
 
   constructor(private http:HttpClient,private router: Router) {}
 
  login() {
   console.log('Login button clicked'); // ✅ Add this
   const payload = {
+    name: this.name,
     email: this.email,
-    password: this.password
+    password: this.password,
+    role: this.role
   };
 
   this.http.post<any>('http://127.0.0.1:8000/api/login', payload).subscribe({
@@ -33,11 +36,12 @@ export class LoginComponent {
       localStorage.setItem('token', res.token);
       localStorage.setItem('name', res.user.name);
       localStorage.setItem('email', res.user.email);
+      localStorage.setItem('role', res.user.role);
       this.router.navigate(['/dashboard']);
     },
     error: (err) => {
       console.error('Login error:', err); // ✅ Log error
-      alert('Login failed. Check credentials.');
+      alert('plz Enter username  password and email');
     }
   });
 }
