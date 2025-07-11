@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   selectedStudent: any = null;
   students: any = [];
   selectedStudentId: number | null = null;
+  searchTerm: string = '';
 
 
   constructor(private http: HttpClient) {}
@@ -62,4 +63,13 @@ ngOnInit() {
       }
     });
   }
+    get filteredPeople() {
+    const term = this.searchTerm.trim().toLowerCase();
+    if (!term) return this.students;          // show all when empty
+    return this.students.filter((p: any) =>
+      p.name.toLowerCase().includes(term) ||
+      p.role?.toLowerCase().includes(term)
+    );
+  
+}
 }

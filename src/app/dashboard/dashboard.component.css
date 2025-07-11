@@ -31,6 +31,7 @@
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 1.1rem;
+  padding-left: 150px;
 }
 
 .student-dropdown {
@@ -74,7 +75,7 @@
 }
 
 .logout-btn:hover {
-  background-color: #00b2a6;
+  background-color: #1f64d3;
 }
 
 .user-info {
@@ -103,4 +104,41 @@
 .user-info span {
   display: table-cell;
   text-align: left;
+}
+
+/* 1️⃣  Logout on top‑right (outside the card) */
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  width: auto;          /* shrink to label */
+  padding: 8px 20px;
+}
+
+/* 2️⃣  Search bar & results */
+.search-bar input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.results {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  max-height: 180px;          /* keeps list tidy */
+  overflow-y: auto;
+}
+
+.results li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.results li:hover,
+.results li.active {
+  background: #00cfc80f;
 }

@@ -8,20 +8,27 @@
     <h5><strong>Address:</strong>{{ address || 'N/A' }}</h5>
     <h5><strong>Role:</strong> {{ role || 'N/A' }}</h5>
   </div>
-<h2 class="section-title">Student List</h2>
 
-<div class="student-dropdown">
-  <select [(ngModel)]="selectedStudentId">
-    <option [value]="null" disabled selected>Select a student</option>
-    <option *ngFor="let student of students" [value]="student.id">
-      {{ student.name }}
-    </option>
-  </select>
+   <!-- ⬇ NEW SEARCH BAR replaces the old <select> block -->
+  <h2 class="section-title">Search People</h2>
 
-  <button (click)="selectedStudentId !== null && viewStudent(selectedStudentId)" [disabled]="!selectedStudentId">
-    View
-  </button>
-</div>
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search by name or role…"
+      [(ngModel)]="searchTerm" />
+  </div>
+
+  <!-- Results list (auto‑filters) -->
+<ul class="results" *ngIf="searchTerm.trim() && filteredPeople.length">
+  <li
+    *ngFor="let person of filteredPeople"
+    (click)="viewStudent(person.id)"
+    [class.active]="selectedStudent?.id === person.id">
+    {{ person.name }} — <em>{{ person.role }}</em>
+  </li>
+</ul>
+
 
   <div *ngIf="selectedStudent" class="selected-student">
     <h2 class="section-title">Selected Student Info</h2>
@@ -32,5 +39,6 @@
     <p><strong>Role:</strong> {{ selectedStudent.role }}</p>
   </div>
 
-  <button class="logout-btn" (click)="logout()">Logout</button>
+  
 </div>
+<button class="logout-btn top-right" (click)="logout()">Logout</button>
